@@ -7,7 +7,7 @@
       "type": "process",
       "args": [
         "build",
-        "${workspaceFolder}/Catalog.csproj",
+        "${workspaceFolder}/Catalog.Api/Catalog.Api.csproj",
         "/property:GenerateFullPaths=true",
         "/consoleloggerparameters:NoSummary"
       ],
@@ -23,7 +23,7 @@
       "type": "process",
       "args": [
         "publish",
-        "${workspaceFolder}/Catalog.csproj",
+        "${workspaceFolder}/Catalog.Api/Catalog.Api.csproj",
         "/property:GenerateFullPaths=true",
         "/consoleloggerparameters:NoSummary"
       ],
@@ -36,7 +36,7 @@
       "args": [
         "watch",
         "run",
-        "${workspaceFolder}/Catalog.csproj",
+        "${workspaceFolder}/Catalog.Api/Catalog.Api.csproj",
         "/property:GenerateFullPaths=true",
         "/consoleloggerparameters:NoSummary"
       ],
@@ -49,12 +49,12 @@
       "dockerBuild": {
         "tag": "catalog:dev",
         "target": "base",
-        "dockerfile": "${workspaceFolder}/Dockerfile",
-        "context": "${workspaceFolder}",
+        "dockerfile": "${workspaceFolder}/Catalog.Api/Dockerfile",
+        "context": "${workspaceFolder}/Catalog.Api",
         "pull": true
       },
       "netCore": {
-        "appProject": "${workspaceFolder}/Catalog.csproj"
+        "appProject": "${workspaceFolder}/Catalog.Api/Catalog.Api.csproj"
       }
     },
     {
@@ -63,12 +63,12 @@
       "dependsOn": ["build"],
       "dockerBuild": {
         "tag": "catalog:latest",
-        "dockerfile": "${workspaceFolder}/Dockerfile",
-        "context": "${workspaceFolder}",
+        "dockerfile": "${workspaceFolder}/Catalog.Api/Dockerfile",
+        "context": "${workspaceFolder}/Catalog.Api",
         "pull": true
       },
       "netCore": {
-        "appProject": "${workspaceFolder}/Catalog.csproj"
+        "appProject": "${workspaceFolder}/Catalog.Api/Catalog.Api.csproj"
       }
     },
     {
@@ -79,7 +79,7 @@
         "os": "Windows"
       },
       "netCore": {
-        "appProject": "${workspaceFolder}/Catalog.csproj",
+        "appProject": "${workspaceFolder}/Catalog.Api/Catalog.Api.csproj",
         "enableDebugging": true,
         "configureSsl": false
       }
@@ -92,7 +92,7 @@
         "os": "Windows"
       },
       "netCore": {
-        "appProject": "${workspaceFolder}/Catalog.csproj"
+        "appProject": "${workspaceFolder}/Catalog.Api/Catalog.Api.csproj"
       }
     }
   ]
