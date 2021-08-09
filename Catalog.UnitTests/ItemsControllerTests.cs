@@ -51,7 +51,7 @@ namespace Catalog.UnitTests
 
             var result = await controller.GetItemAsync(Guid.NewGuid());
 
-            result.Value.Should().BeEquivalentTo(expectedItem, opt => opt.ComparingByMembers<Item>());
+            result.Value.Should().BeEquivalentTo(expectedItem);
         }
 
         [Fact]
@@ -65,7 +65,7 @@ namespace Catalog.UnitTests
 
             var result = await controller.GetItemsAsync();
 
-            result.Should().BeEquivalentTo(expectedItems, opt => opt.ComparingByMembers<Item>());
+            result.Should().BeEquivalentTo(expectedItems);
         }
 
         [Fact]
