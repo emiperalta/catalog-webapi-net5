@@ -71,11 +71,7 @@ namespace Catalog.UnitTests
         [Fact]
         public async Task CreateItemAsync_WithItemToCreate_ReturnsCreatedItem()
         {
-            var itemToCreate = new CreateItemDto()
-            {
-                Name = Guid.NewGuid().ToString(),
-                Price = rand.Next(1000)
-            };
+            var itemToCreate = new CreateItemDto(Guid.NewGuid().ToString(), Guid.NewGuid().ToString(), rand.Next(1000));
             var controller = new ItemsController(repositoryStub.Object);
 
             var result = await controller.CreateItemAsync(itemToCreate);
@@ -111,11 +107,7 @@ namespace Catalog.UnitTests
                 .ReturnsAsync(existingItem);
             var controller = new ItemsController(repositoryStub.Object);
             var itemId = existingItem.Id;
-            var itemToUpdate = new UpdateItemDto()
-            {
-                Name = Guid.NewGuid().ToString(),
-                Price = existingItem.Price + 3
-            };
+            var itemToUpdate = new UpdateItemDto(Guid.NewGuid().ToString(),Guid.NewGuid().ToString(),existingItem.Price + 3);
 
             var result = await controller.UpdateItemAsync(itemId, itemToUpdate); 
 
